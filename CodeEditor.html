@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content ="width=device-width,initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="CodeEditor.css">
+    <script src="https://kit.fontawesome.com/28e6d6f689.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="left">
+                   <label><i class="fa-brands fa-html5 fa-beat" style="color: #ff9b0f;"></i> HTML</label>
+                   <textarea id="html-input" onkeyup="run()"></textarea>
+
+                   <label><i class="fa-brands fa-css3-alt fa-beat" style="color: #005eff;"></i> CSS</label>
+                   <textarea id="css-input" onkeyup="run()"></textarea>
+
+                   <label><i class="fa-brands fa-js fa-beat" style="color: #ffea00;"></i> JavaScript</label>
+                   <textarea id="Js-input" onkeyup="run()"></textarea>
+            </div>
+
+
+            <div class="right">
+                <label><i class="fa-solid fa-hurricane fa-spin" style="color: #01fe7b;"></i> Output</label>
+                <iframe id="output"></iframe>
+
+
+
+
+            </div>
+        </div>
+
+        <script>
+            function run(){
+                let htmlCode=document.getElementById("html-input").value;
+                let cssCode=document.getElementById("css-input").value;
+                let jsCode=document.getElementById("Js-input").value;
+                let output=document.getElementById("output");
+
+                output.contentDocument.body.innerHTML=htmlCode + "<style>"+cssCode+"</style>";
+                output.contentWindow.eval(jsCode);
+            }
+        </script>
+
+
+
+
+    </body>
+</html>
